@@ -52,15 +52,27 @@ StampaArrayInteri (arrayDiNumeri);
 /* Stampo al quadrato ogni singolo numero */
 
 
+void elevaArrayAlQuadrato(int[] array)
+{
+    Console.Write("[");
+    int ultimoIndiceArray = array.Length - 1;
+    for (int i = 0; i < array.Length; i++) {
 
-for (int i = 0; i < arrayDiNumeri.Length; i++)
+        double quadrato = Math.Pow(arrayDiNumeri[i], 2);
+        if (i == ultimoIndiceArray)
+        { Console.Write(quadrato);
+        }
+        else
+        {
+            Console.Write(quadrato + ", ");
+        }
+        
 
- {
-    double quadrato = Math.Pow (arrayDiNumeri[i], 2);
-    Console.WriteLine (quadrato + "numero al quadrato");
-
-   
+    }
+    Console.WriteLine("]");
 }
+
+elevaArrayAlQuadrato(arrayDiNumeri);
 
 
 
@@ -68,13 +80,14 @@ for (int i = 0; i < arrayDiNumeri.Length; i++)
 
 //Somma dei numeri
 
+void sommaElementiArray(int[] array)
+{
 
-
-    int[] array = arrayDiNumeri;
 
     int sum = 0;
     Array.ForEach(array, i => sum += i);
 
     Console.WriteLine(sum + " totale");
 
-
+}
+sommaElementiArray(arrayDiNumeri);
