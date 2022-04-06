@@ -22,8 +22,19 @@ Stampare l’array di numeri fornito a video, dove ogni numero è stato prima el
 Stampare la somma di tutti i numeri
 Stampare la somma di tutti i numeri elevati al quadrati */
 
+int[] array = { 2, 6, 7, 5, 3, 9 };
+StampaArrayInteri(array);
+Console.WriteLine (array.Length);
 
-//Prima funzione
+int sum = SommaElementi(array);
+Console.WriteLine(sum);
+
+int [] quadratoarray = elevaArrayQuadrato(array);
+StampaArrayInteri(quadratoarray);
+Console.WriteLine (quadratoarray.Length);
+
+
+
 void StampaArrayInteri(int[] array)
 {
     int ultimoIndiceArray = array.Length - 1;
@@ -42,54 +53,31 @@ void StampaArrayInteri(int[] array)
     Console.WriteLine("]");
 }
 
-int[] arrayDiNumeri = { 2, 6, 7, 5, 3, 9 };
-StampaArrayInteri (arrayDiNumeri);
-
-
-
-
-
-/* Stampo al quadrato ogni singolo numero */
-
-
-void elevaArrayAlQuadrato(int[] array)
+int quadrato (int numero)
 {
-    Console.Write("[");
-    int ultimoIndiceArray = array.Length - 1;
-    for (int i = 0; i < array.Length; i++) {
+    int risultato;
+    risultato = numero * numero;
+    return risultato;
+}
 
-        double quadrato = Math.Pow(arrayDiNumeri[i], 2);
-        if (i == ultimoIndiceArray)
-        { Console.Write(quadrato);
-        }
-        else
-        {
-            Console.Write(quadrato + ", ");
-        }
-        
-
+int [] elevaArrayQuadrato(int [] array)
+{
+    int [] copiaArray =  (int[]) array.Clone();
+    for (int i =0; i < array.Length; i++)
+    {
+    copiaArray[i] = quadrato (copiaArray[i]);
     }
-    Console.WriteLine("]");
+    return copiaArray;
 }
 
-elevaArrayAlQuadrato(arrayDiNumeri);
-
-
-
-
-
-//Somma dei numeri
-
-void sommaElementiArray(int[] array)
+int SommaElementi(int [] array)
 {
-
-
-    int sum = 0;
-    Array.ForEach(array, i => sum += i);
-
-    Console.WriteLine(sum + " totale");
-
+    int [] copiaArray = (int[])array.Clone();
+    int somma = 0;
+    for(int i = 0; i < array.Length; i++)
+    {
+        somma += copiaArray[i];
+    }
+    return somma;
 }
-sommaElementiArray(arrayDiNumeri);
-
 
